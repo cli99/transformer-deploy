@@ -165,7 +165,7 @@ def convert_to_onnx(
             training=TrainingMode.EVAL,  # always put the model in evaluation mode
             verbose=False,
         )
-    proto = onnx.load(output_path, load_external_data=False)
+    proto = onnx.load(output_path, load_external_data=True)
     save_onnx(proto=proto, model_path=output_path)
     if quantization:
         TensorQuantizer.use_fb_fake_quant = False
